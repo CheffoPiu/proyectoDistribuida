@@ -1,15 +1,10 @@
-# 1) Imagen base con Python
 FROM python:3.11-slim
 
-# 2) Directorio de trabajo dentro del contenedor
+# Directorio de trabajo
 WORKDIR /app
 
-# 3) Copia tu código
-COPY hello.py /app/hello.py
-COPY requirements.txt /app/requirements.txt
+# Copiamos sólo el .py (y si tuvieras requirements.txt, también)
+COPY hola.py   .
 
-# 4) (Opcional) instala dependencias
-RUN pip install --no-cache-dir -r requirements.txt
-
-# 5) Comando por defecto al arrancar
-CMD ["python", "hello.py"]
+# Comando por defecto
+CMD ["python", "hola.py"]
